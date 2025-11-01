@@ -2,12 +2,12 @@ FROM ollama/ollama
 
 EXPOSE 11434
 
-# You can add further configurations here if needed,
-# such as pre-pulling a model or setting environment variables.
-# For example, to pre-pull a model:
-
 #RUN ollama pull llama3.1
+#RUN ollama pull gemma3:1b
 
-# The default command for the ollama/ollama image will start the server.
-# You can override it if you need a custom entrypoint or command.
-#CMD ["ollama serve"]
+ENV OLLAMA_HOST=0.0.0.0:11434
+
+# both lines deprecated it runs by default now
+#ENTRYPOINT ["/bin/ollama"]
+#CMD ["serve"]
+
